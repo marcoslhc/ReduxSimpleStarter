@@ -8,13 +8,15 @@ class Books extends Component {
 
   render() {
     const {books} = this.props;
-    return <BookList  onSelectBook={(book) => this.props.selectBook(book)}
+    return <BookList  isActiveTest={(book) => this.props.book.title === book.title}
+                      onSelectBook={(book) => this.props.selectBook(book)}
                       books={books} />
   };
 }
 
 function mapStateToProps(state) {
   return {
+    book: state.book,
     books: state.books
   }
 }
